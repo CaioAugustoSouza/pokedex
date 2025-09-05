@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, StyleSheet, Dimensions, ScrollView, TextInput } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Dimensions, ScrollView, TextInput, TouchableOpacity } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
@@ -19,6 +19,7 @@ export default function App() {
     "Goiaba",
     "Pitaya",
   ];
+  const [busca, setBusca] = useState()
 
   return (
     <View style={styles.container}>
@@ -32,12 +33,26 @@ export default function App() {
             </View>
           ))}
         </ScrollView>
+      </View>
+      <View style={styles.inputTextContainer}>
         <TextInput
           placeholder='digite aqui'
-          value={'texto'}
-          onChange={()=>{}}
-          style = {styles.text}
+          value={busca}
+          onChange={(val) => { setBusca(val) }}
+          style={styles.inputText}
         />
+      </View>
+      <View style={styles.containerButtons}>
+        <TouchableOpacity >
+          <Text>
+            Buscar
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text>
+            Limpar
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -68,6 +83,24 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    color: 'white'
+    color: 'white',
+    textAlign: 'center'
   },
+  inputTextContainer: {
+    backgroundColor: 'blue',
+    marginTop: 30,
+    width: width / 2,
+  },
+  inputText: {
+    backgroundColor: 'green'
+  },
+  containerButtons: {
+    width: width,
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    marginTop: 30
+  }
+  
 });
