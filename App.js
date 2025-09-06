@@ -1,5 +1,4 @@
-import { SharedObjectType } from "expo";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Dimensions, ScrollView, TextInput, TouchableOpacity, Image } from "react-native";
 
 const { width, height } = Dimensions.get("window");
