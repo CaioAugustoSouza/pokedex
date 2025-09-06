@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Dimensions, ScrollView, TextInput, TouchableOpacity, Image } from "react-native";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 export default function App() {
+  const [pokemonList, setPokemonList] = useState([])
+  function obterPokemon(){
+    fetch('https://pokeapi.co/api/v2/pokemon').then(r=>{
+      console.log(r);
+    })
+  }
   const items = [
     "Banana",
     "Maçã super gigante que não cabe",
@@ -20,6 +26,10 @@ export default function App() {
     "Pitaya",
   ];
   const [busca, setBusca] = useState()
+
+  useEffect(()=>{
+    obterPokemon();
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -59,7 +69,7 @@ export default function App() {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn2}>
-          <Text style={styles.btnText}>
+          <Text style={styles.btnText2}>
             Limpar
           </Text>
         </TouchableOpacity>
@@ -148,9 +158,9 @@ const styles = StyleSheet.create({
   },
   btnText:{
     textAlign: 'center',
-    color: 'black'
+    color: 'white'
   },
-  btnText1:{
+  btnText2:{
     textAlign: 'center',
     color: 'black'
   }
