@@ -24,9 +24,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
-        <Text style={styles.titleText}>
-          Pokedex
-        </Text>
+          <Text style={styles.titleText}>
+            Pokedex
+          </Text>
       </View>
       <View style={styles.display}>
         <Image
@@ -54,12 +54,12 @@ export default function App() {
       </View>
       <View style={styles.containerButtons}>
         <TouchableOpacity style={styles.btn1} >
-          <Text>
+          <Text style={styles.btnText}>
             Buscar
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn2}>
-          <Text>
+          <Text style={styles.btnText}>
             Limpar
           </Text>
         </TouchableOpacity>
@@ -69,20 +69,21 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  titleText:{
+  titleText: {
     textAlign: 'center'
   },
   title: {
-    width: width*0.9,
+    width: width * 0.9,
     height: 40,
     backgroundColor: 'white',
     marginBottom: 10,
     display: 'flex',
-    alignItems: 'center'
-  },  
+    justifyContent: 'center',
+    borderRadius: 10
+  },
   display: {
     backgroundColor: 'yellow',
-    width: 8*width/9,
+    width: 8 * width / 9,
     height: 400,
     marginBottom: 30,
     borderRadius: 40
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
   },
   item: {
     paddingHorizontal: 16,
-    paddingVertical: 20,
+    paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: "gray",
   },
@@ -120,7 +121,8 @@ const styles = StyleSheet.create({
     width: width / 2,
   },
   inputText: {
-    backgroundColor: 'green'
+    backgroundColor: 'green',
+    borderRadius: 10
   },
   containerButtons: {
     width: width,
@@ -129,15 +131,27 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     marginTop: 30
-  },  
+  },
   btn1: {
-    backgroundColor: 'white',
+    backgroundColor: 'green',
     width: 100,
     height: 40,
+    borderRadius: 10,
+    justifyContent: 'center',
   },
   btn2: {
-    backgroundColor: 'white',
+    backgroundColor: 'yellow',
     width: 100,
     height: 40,
+    borderRadius: 10,
+    justifyContent: 'center'
+  },
+  btnText:{
+    textAlign: 'center',
+    color: 'black'
+  },
+  btnText1:{
+    textAlign: 'center',
+    color: 'black'
   }
 });
