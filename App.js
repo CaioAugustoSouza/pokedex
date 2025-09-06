@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions, ScrollView, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Dimensions, ScrollView, TextInput, TouchableOpacity, Image } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
@@ -23,6 +23,16 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.title}>
+        <Text style={styles.titleText}>
+          Pokedex
+        </Text>
+      </View>
+      <View style={styles.display}>
+        <Image
+
+        />
+      </View>
       <View style={styles.namesBox}>
         <ScrollView showsVerticalScrollIndicator={true}>
           {items.map((item, index) => (
@@ -43,12 +53,12 @@ export default function App() {
         />
       </View>
       <View style={styles.containerButtons}>
-        <TouchableOpacity >
+        <TouchableOpacity style={styles.btn1} >
           <Text>
             Buscar
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.btn2}>
           <Text>
             Limpar
           </Text>
@@ -59,6 +69,24 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  titleText:{
+    textAlign: 'center'
+  },
+  title: {
+    width: width*0.9,
+    height: 40,
+    backgroundColor: 'white',
+    marginBottom: 10,
+    display: 'flex',
+    alignItems: 'center'
+  },  
+  display: {
+    backgroundColor: 'yellow',
+    width: 8*width/9,
+    height: 400,
+    marginBottom: 30,
+    borderRadius: 40
+  },
   container: {
     display: 'flex',
     justifyContent: 'center',
@@ -101,6 +129,15 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     marginTop: 30
+  },  
+  btn1: {
+    backgroundColor: 'white',
+    width: 100,
+    height: 40,
+  },
+  btn2: {
+    backgroundColor: 'white',
+    width: 100,
+    height: 40,
   }
-  
 });
