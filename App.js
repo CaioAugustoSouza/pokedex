@@ -10,7 +10,7 @@ export default function App() {
   const [tipo, setTipo] = useState()
   const [nome, setNome] = useState()
 
-  function obterPokemon() {
+  function obterPokemon() { 
     fetch('https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0')
       .then(r => r.json())
       .then(r => {
